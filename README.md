@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+<h1 align="center">Invoice Management App</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Get Started
 
-Currently, two official plugins are available:
+### Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+We use `pnpm` as a package manager: [pnpm](https://pnpm.io/)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+# Install all dependencies
+pnpm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### Commands
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+// Run development
+pnpm dev
 ```
+
+#### Building
+
+```sh
+// Build
+pnpm build
+```
+
+#### Lint and Prettier
+
+```sh
+pnpm lint
+pnpm lint:fix
+pmpm prettier
+```
+
+## Conventions and Best Practices
+
+-   [Introduction](#introduction)
+-   [Commits and commit messages](#commits-and-commit-messages)
+-   [Code Quality](#code-quality)
+-   [Code Formatting](#code-formatting)
+-   [Linting](#linting)
+-   [Code Reviews](#code-reviews)
+-   [Never push directly to master](#never-push-directly-to-master)
+
+### Introduction
+
+This document contains various conventions and best practices that we strive to adhere.
+
+### Commits and commit messages
+
+#### Conventional Commits
+
+-   Commit messages should be stylistically consistent and follow
+    [Conventional Commits](https://www.conventionalcommits.org) specification. We have enabled pre-hook which check
+    commit, if it suits conventional commit styles.
+
+### Code Quality
+
+#### Code formatting
+
+-   We use [prettier](https://prettier.io).
+-   To make it really convenient and seamless we recommended installing `prettier` as your code editor plugin and set up
+    in your IDE settings.
+-   We are running `eslint | prettier` with scripts mentioned above
+
+### Linting
+
+We use `eslint` to keep our source code clean.
+
+-   We have enabled pre-hook which check commit, if it suits eslint styles.
+
+### Code Reviews
+
+We are working with Trunk Based Development, which means that we are merging to master frequently. This means that we
+need to be extra careful with the code that we are merging. We are using GitHub PRs for code reviews.
+
+#### Never push directly to master
+
+All feature work must happen on it's own fork or a branch. No direct commits on the version (eg. `0.1`) or master
+branches are allowed.
